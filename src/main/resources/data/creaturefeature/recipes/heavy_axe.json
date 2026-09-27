@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:netherite_block"
+    },
+    "A": {
+      "item": "creaturefeature:blitz_rod"
+    }
+  },
+  "pattern": [
+    "A#",
+    " A",
+    " A"
+  ],
+  "result": {
+    "count": 1,
+    "item": "creaturefeature:heavy_axe"
+  }
+}
