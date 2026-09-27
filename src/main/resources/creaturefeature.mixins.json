@@ -1,0 +1,30 @@
+{
+  "minVersion": "0.8.5",
+  "required": true,
+  "package": "net.atired.creaturefeature.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "refmap": "creaturefeature.refmap.json",
+  "mixins": [
+    "AbstractBlockMixin",
+    "AbstractContainerMenuMixin",
+    "LivingEntityGoopMixin",
+    "MonsterEntityMixin",
+    "PlayerAdvancementsMixin",
+    "PlayerMixin",
+    "ShearsItemMixin"
+  ],
+  "client": [
+    "AdvancementTabMixin",
+    "AdvancementWidgetMixin",
+    "CameraMixin",
+    "CameraTypeMixin",
+    "CFGameRendererMixin",
+    "CFGuiMixin",
+    "CFPostChainMixin",
+    "FallingBlockEntityRendererMixin",
+    "GuiGraphicsMixin",
+    "HumanoidArmorLayerMixin",
+    "IamActivelyHavingaMigraineMixin",
+    "LivingEntityRendererMixin"
+  ]
+}
