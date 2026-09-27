@@ -1,6 +1,6 @@
 {
   "type": "forge:add_spawns",
-  "biomes": "#c:is_desert",
+  "biomes": "#forge:is_desert",
   "spawners": {
     "type": "creaturefeature:stained_glass",
     "weight": 14,

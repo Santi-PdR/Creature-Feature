@@ -1,6 +1,6 @@
 {
   "type": "forge:add_spawns",
-  "biomes": "#c:is_outer_end_island",
+  "biomes": "#creaturefeature:end_islands",
   "spawners": {
     "type": "creaturefeature:nothing",
     "weight": 2,

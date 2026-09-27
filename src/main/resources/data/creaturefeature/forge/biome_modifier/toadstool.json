@@ -1,6 +1,6 @@
 {
   "type": "forge:add_spawns",
-  "biomes": "#c:is_plains",
+  "biomes": "#forge:is_plains",
   "spawners": {
     "type": "creaturefeature:toadstool",
     "weight": 4,

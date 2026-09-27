@@ -1,6 +1,6 @@
 {
   "type": "forge:add_spawns",
-  "biomes": "#c:is_savanna",
+  "biomes": "#minecraft:is_savanna",
   "spawners": {
     "type": "creaturefeature:minds",
     "weight": 40,

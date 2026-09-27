@@ -1,6 +1,6 @@
 {
   "type": "forge:add_spawns",
-  "biomes": "#c:is_beach",
+  "biomes": "#minecraft:is_beach",
   "spawners": {
     "type": "creaturefeature:cannonball_crab",
     "weight": 25,

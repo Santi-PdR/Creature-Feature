@@ -1,5 +1,5 @@
 {
   "type": "forge:remove_spawns",
-  "biomes": "#c:no_default_monsters",
+  "biomes": "#creaturefeature:no_default_monsters",
   "entity_types": "creaturefeature:sinister"
 }

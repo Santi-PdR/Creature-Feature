@@ -1,6 +1,6 @@
 {
   "type": "forge:add_spawns",
-  "biomes": "#c:is_taiga",
+  "biomes": "#forge:is_coniferous",
   "spawners": {
     "type": "creaturefeature:vertigo",
     "weight": 5,

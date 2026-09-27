@@ -1,6 +1,6 @@
 {
   "type": "forge:add_spawns",
-  "biomes": "#c:is_overworld",
+  "biomes": "#minecraft:is_overworld",
   "spawners": {
     "type": "creaturefeature:canary",
     "weight": 4,

@@ -1,6 +1,6 @@
 {
   "type": "forge:add_spawns",
-  "biomes": "#c:is_floral",
+  "biomes": "#creaturefeature:floral_biomes",
   "spawners": {
     "type": "creaturefeature:fend",
     "weight": 6,

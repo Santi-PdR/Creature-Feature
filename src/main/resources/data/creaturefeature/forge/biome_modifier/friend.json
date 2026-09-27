@@ -1,6 +1,6 @@
 {
   "type": "forge:add_spawns",
-  "biomes": "#c:is_nether",
+  "biomes": "#minecraft:is_nether",
   "spawners": {
     "type": "creaturefeature:friend",
     "weight": 3,

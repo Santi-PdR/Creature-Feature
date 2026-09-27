@@ -1,6 +1,6 @@
 {
   "type": "forge:add_spawns",
-  "biomes": "#c:is_jungle",
+  "biomes": "#minecraft:is_jungle",
   "spawners": {
     "type": "creaturefeature:blossom",
     "weight": 30,
