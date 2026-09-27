@@ -47,6 +47,7 @@ public class CreatureFeature {
         CFItemInit.ITEMS.register(modEventBus);
         CFBlockInit.BLOCKS.register(modEventBus);
         CFBlockEntityInit.BLOCK_ENTITY_TYPES.register(modEventBus);
+        CFGlobalLootModifierInit.register(modEventBus);
 
     }
     public static ResourceLocation getId(String string){
