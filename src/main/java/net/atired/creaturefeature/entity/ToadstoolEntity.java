@@ -52,7 +52,7 @@ public class ToadstoolEntity extends Monster {
         super.tick();
         if (level().isClientSide) {
             lerpedonFours = Mth.lerp(0.25F, lerpedonFours, isCharging() ? 0.0F : 1.0F);
-            if (chargeTicks > 0 && tickCount % 3 == 0) {
+            if (isCharging() && tickCount % 3 == 0) {
                 level().addParticle(ParticleTypes.WITCH, getRandomX(0.45), getY(0.7), getRandomZ(0.45), 0.0, 0.08, 0.0);
             }
             return;
