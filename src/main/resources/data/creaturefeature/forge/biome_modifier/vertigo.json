@@ -1,8 +1,7 @@
 {
-  "type": "neoforge:add_spawns",
+  "type": "forge:add_spawns",
   "biomes": "#c:is_taiga",
-  "spawners":
-  {
+  "spawners": {
     "type": "creaturefeature:vertigo",
     "weight": 5,
     "minCount": 1,

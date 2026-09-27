@@ -1,5 +1,5 @@
 {
-  "type": "neoforge:remove_spawns",
+  "type": "forge:remove_spawns",
   "biomes": "#c:no_default_monsters",
   "entity_types": "creaturefeature:canary"
 }

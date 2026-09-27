@@ -1,8 +1,7 @@
 {
-  "type": "neoforge:add_spawns",
+  "type": "forge:add_spawns",
   "biomes": "#c:is_outer_end_island",
-  "spawners":
-  {
+  "spawners": {
     "type": "creaturefeature:minedflayer",
     "weight": 1,
     "minCount": 4,

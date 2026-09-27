@@ -1,9 +1,8 @@
 {
-  "type": "neoforge:add_spawns",
+  "type": "forge:add_spawns",
   "biomes": "#c:is_outer_end_island",
-  "spawners":
-  {
-    "type": "creaturefeature:blitz",
+  "spawners": {
+    "type": "creaturefeature:saint_solis",
     "weight": 3,
     "minCount": 1,
     "maxCount": 1

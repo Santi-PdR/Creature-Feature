@@ -1,8 +1,7 @@
 {
-  "type": "neoforge:add_spawns",
+  "type": "forge:add_spawns",
   "biomes": "#c:is_desert",
-  "spawners":
-  {
+  "spawners": {
     "type": "creaturefeature:stained_glass",
     "weight": 14,
     "minCount": 1,

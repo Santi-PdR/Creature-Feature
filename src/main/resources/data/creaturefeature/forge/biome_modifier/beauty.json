@@ -1,8 +1,7 @@
 {
-  "type": "neoforge:add_spawns",
+  "type": "forge:add_spawns",
   "biomes": "minecraft:lush_caves",
-  "spawners":
-  {
+  "spawners": {
     "type": "creaturefeature:beauty",
     "weight": 140,
     "minCount": 1,

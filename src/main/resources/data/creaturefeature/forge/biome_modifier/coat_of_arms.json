@@ -1,8 +1,9 @@
 {
-  "type": "neoforge:add_spawns",
-  "biomes": ["minecraft:swamp"],
-  "spawners":
-  {
+  "type": "forge:add_spawns",
+  "biomes": [
+    "minecraft:swamp"
+  ],
+  "spawners": {
     "type": "creaturefeature:coat_of_arms",
     "weight": 15,
     "minCount": 1,

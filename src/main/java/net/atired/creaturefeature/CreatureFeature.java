@@ -26,7 +26,7 @@ import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
-// The value here should match an entry in the META-INF/neoforge.mods.toml file
+// The value here should match an entry in the META-INF/mods.toml file
 @Mod(CreatureFeature.MODID)
 public class CreatureFeature {
     public static final String MODID = "creaturefeature";
