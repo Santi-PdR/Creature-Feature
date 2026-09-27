@@ -38,7 +38,9 @@ public class ToadstoolEntityRenderer extends MobRenderer<ToadstoolEntity, Toadst
                            MultiBufferSource buffer, int packedLight) {
             poseStack.pushPose();
             poseStack.mulPose(com.mojang.math.Axis.YP.rotationDegrees(180.0F - entity.getYRot()));
-            poseStack.translate(-0.5D, -0.5D, -0.5D);
+            poseStack.translate(-0.5D, 0.0D, -0.5D);
+            blocks.renderSingleBlock(net.atired.creaturefeature.init.CFBlockInit.RUNIC_STONE_BRICKS.get().defaultBlockState(), poseStack, buffer, packedLight, OverlayTexture.NO_OVERLAY);
+            poseStack.translate(0.0D, 1.0D, 0.0D);
             blocks.renderSingleBlock(Blocks.CHISELED_STONE_BRICKS.defaultBlockState(), poseStack, buffer, packedLight, OverlayTexture.NO_OVERLAY);
             poseStack.translate(0.0D, 1.0D, 0.0D);
             blocks.renderSingleBlock(net.atired.creaturefeature.init.CFBlockInit.RUNIC_STONE_BRICKS.get().defaultBlockState(), poseStack, buffer, packedLight, OverlayTexture.NO_OVERLAY);

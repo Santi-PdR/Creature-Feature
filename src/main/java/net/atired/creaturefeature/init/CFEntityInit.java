@@ -36,7 +36,7 @@ public class CFEntityInit {
                     .sized(1.2f, 0.9f).clientTrackingRange(12).build("toadstool"));
     public static final RegistryObject<EntityType<ToadstoolStoneProjectile>> TOADSTOOL_STONE =
             ENTITIES.register("toadstool_stone", () -> EntityType.Builder.<ToadstoolStoneProjectile>of(ToadstoolStoneProjectile::new, MobCategory.MISC)
-                    .sized(0.9F, 0.9F).clientTrackingRange(8).updateInterval(2).build("toadstool_stone"));
+                    .sized(2.0F, 3.0F).clientTrackingRange(8).updateInterval(2).build("toadstool_stone"));
     public static final RegistryObject<EntityType<MockingBirdEntity>> MOCKINGBIRD =
             ENTITIES.register("mockingbird", () -> EntityType.Builder.of(MockingBirdEntity::new, MobCategory.MONSTER)
                     .sized(0.9f, 2.8f).clientTrackingRange(12)

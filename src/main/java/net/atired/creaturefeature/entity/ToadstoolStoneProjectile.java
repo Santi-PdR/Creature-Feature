@@ -32,7 +32,7 @@ public class ToadstoolStoneProjectile extends ThrowableProjectile {
     protected void onHitEntity(EntityHitResult result) {
         super.onHitEntity(result);
         if (!level().isClientSide && result.getEntity() != getOwner()) {
-            result.getEntity().hurt(damageSources().mobProjectile(this, getOwner() instanceof LivingEntity living ? living : null), 7.0F);
+            result.getEntity().hurt(damageSources().flyIntoWall(), 4.0F);
             Vec3 knockback = result.getEntity().position().subtract(position()).normalize().scale(0.85).add(0.0, 0.2, 0.0);
             result.getEntity().push(knockback.x, knockback.y, knockback.z);
             discard();

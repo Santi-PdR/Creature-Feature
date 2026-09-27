@@ -94,7 +94,7 @@ public class ToadstoolEntity extends Monster {
             return;
         }
         ToadstoolStoneProjectile stone = new ToadstoolStoneProjectile(level(), this);
-        stone.setPos(getX(), getEyeY() - 0.25, getZ());
+        stone.setPos(getX(), getY(), getZ());
         Vec3 aim = target.getEyePosition().subtract(stone.position());
         if (aim.lengthSqr() > 1.0E-6) {
             stone.shoot(aim.x, aim.y + Math.min(aim.horizontalDistance() * 0.08, 1.0), aim.z, 1.6F, 0.0F);
