@@ -103,7 +103,7 @@ void main(){
 
     float noise = dist*FadeInTest*((abs(cnoise(vec3(dirForNoise*20.7,GameTime/30.0f+20.0))*0.5)+0.2)*pow(length(fracted-vec2(0.5,0.5)),2.0)*2.0);
     noise-=fract(noise*12.0)/12.0;
-    fragColor.xyz*=max(1.0f-noise,0f);
+    fragColor.xyz*=max(1.0f-noise,0.0);
     fragColor.y/=dist*FadeInTest+(1.0-FadeInTest);
     fragColor.a=1.0f;
 }

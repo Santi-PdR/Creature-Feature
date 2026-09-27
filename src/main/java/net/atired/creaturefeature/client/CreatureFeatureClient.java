@@ -48,7 +48,7 @@ import java.io.IOException;
 
 // This class will not load on dedicated servers. Accessing client side code from here is safe.
 // You can use EventBusSubscriber to automatically register all static methods in the class annotated with @SubscribeEvent
-@EventBusSubscriber(modid = CreatureFeature.MODID, value = Dist.CLIENT)
+@EventBusSubscriber(modid = CreatureFeature.MODID, bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 public class CreatureFeatureClient {
 
     @SubscribeEvent
@@ -143,7 +143,6 @@ public class CreatureFeatureClient {
     private static final ResourceLocation PATHOGEN_STARS_LOCATION = CreatureFeature.getId("textures/entity/pathogen_stars.png");
     private static final ResourceLocation BLITZ_TRAIL_LOCATION = CreatureFeature.getId("textures/entity/blitz_trail.png");
 
-    @SubscribeEvent
     static void renderModelEvent(RenderLivingEvent.Pre event) {
         if(event.getEntity() instanceof LivingEntityGoopAccessor accessor&&accessor.getSquashed()>0f){
             if(SHOULD[1]){
@@ -295,7 +294,6 @@ public class CreatureFeatureClient {
             }
         }, CFBlockInit.DOWN_FEATHERS.get(),CFBlockInit.DOWN_FEATHERS_CARPET.get());
     }
-    @SubscribeEvent
     static void postRenderEntity(RenderLivingEvent.Post event) {
         if(SHOULD[1]&&event.getEntity() instanceof LivingEntityGoopAccessor accessor&&accessor.getSquashed()>0f){
 
@@ -427,7 +425,6 @@ public class CreatureFeatureClient {
     }
     public static int[] SIZED = {160,90};
     private static final ResourceLocation CANARY_SMOG_LOCATION = CreatureFeature.getId("textures/entity/canary_smog_bg.png");
-    @SubscribeEvent
     public static void clientWorldRenderStage(RenderLevelStageEvent event){
         if(event.getStage()== RenderLevelStageEvent.Stage.AFTER_ENTITIES&&CreatureFeatureClient.FRIEND_TARGET!=null){
 
@@ -467,7 +464,6 @@ public class CreatureFeatureClient {
 
         }
     }
-    @SubscribeEvent
     public static void clientTickEvent(TickEvent.ClientTickEvent post) throws IOException {
         if (post.phase != TickEvent.Phase.START) return;
         if((SIZED[0]!=Minecraft.getInstance().getWindow().getWidth()||

@@ -30,7 +30,7 @@ out vec2 texCoord0;
 
 void main() {
     vec3 positioner = Position;
-    vertexDistance = fog_distance(Position, FogShape);
+    vertexDistance = fog_distance(ModelViewMat, Position, FogShape);
     vertexColor = Color;
     vertexColor = minecraft_mix_light(Light0_Direction, Light1_Direction, vec3(0,0,1), Color);
     if(OffYPosition>-300.0||OffYPosition<-301.0){

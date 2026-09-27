@@ -29,7 +29,7 @@ out vec2 texCoord0;
 
 void main() {
     vec3 positioner = Position;
-    vertexDistance = fog_distance(Position, FogShape);
+    vertexDistance = fog_distance(ModelViewMat, Position, FogShape);
     vertexColor = Color;
     if(OffYPosition>-300.0||OffYPosition<-301.0){
         vertexColor.a*=min(1.0,(1.9-clamp(Position.y-OffYPosition,0.0,1.9))*1.5);

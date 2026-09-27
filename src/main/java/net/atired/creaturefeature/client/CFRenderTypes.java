@@ -21,7 +21,7 @@ import java.io.IOException;
 import java.util.function.BiFunction;
 import java.util.function.Function;
 
-@EventBusSubscriber(modid = CreatureFeature.MODID,value = Dist.CLIENT)
+@EventBusSubscriber(modid = CreatureFeature.MODID, bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 public class CFRenderTypes extends RenderStateShard {
     private CFRenderTypes() {
         super("creaturefeature", () -> {}, () -> {});

@@ -32,6 +32,7 @@ public class CFGameRendererMixin implements GameRendererResourceManagerAccessor 
     //
     @Inject(method = "render",at= @At(value = "INVOKE", target = "Lnet/minecraft/client/renderer/LevelRenderer;doEntityOutline()V",ordinal = 0,shift= At.Shift.BEFORE))
     private void renderCFDepth(float partialTick, long nanoTime, boolean renderLevel, CallbackInfo ci){
+        if (CreatureFeatureClient.SUN_TARGET2 == null || CreatureFeatureClient.SUN == null) return;
         CreatureFeatureClient.SUN_TARGET2.copyDepthFrom(Minecraft.getInstance().getMainRenderTarget());
         if(CreatureFeatureClient.SUN instanceof PostChainDepthPassAccessor accessor2){
             for(PostPass pass : accessor2.getDemPostPasses()){
@@ -44,7 +45,9 @@ public class CFGameRendererMixin implements GameRendererResourceManagerAccessor 
         @Inject(method = "render",at= @At(value = "INVOKE", target = "Lcom/mojang/blaze3d/pipeline/RenderTarget;bindWrite(Z)V",ordinal = 0,shift= At.Shift.BEFORE))
     private void renderCF(float partialTick, long nanoTime, boolean renderLevel, CallbackInfo ci){
         if(Minecraft.getInstance().levelRenderer!=null&&CreatureFeatureClient.RABIES_TARGET!=null&&
-                CreatureFeatureClient.MINEDFLAYER !=null&&Minecraft.getInstance().player!=null&&
+                CreatureFeatureClient.MINEDFLAYER !=null&&CreatureFeatureClient.FRIEND != null&&
+                CreatureFeatureClient.SUN != null&&CreatureFeatureClient.FRIEND_TARGET != null&&
+                CreatureFeatureClient.SUN_TARGET != null&&Minecraft.getInstance().player!=null&&
                 Minecraft.getInstance().gameRenderer instanceof GameRendererResourceManagerAccessor accessor){
 
             PostChain chain2 = CreatureFeatureClient.FRIEND;

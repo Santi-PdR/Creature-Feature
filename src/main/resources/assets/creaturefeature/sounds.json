@@ -53,6 +53,12 @@
       "creaturefeature:stained_glass_die"
     ]
   },
+  "entity.stained_glass_retreat": {
+    "subtitle": "sound.creaturefeature.stained_glass_retreat",
+    "sounds": [
+      "creaturefeature:stained_glass_rebound"
+    ]
+  },
   "entity.shot": {
     "subtitle": "sound.creaturefeature.shot",
     "sounds": [
