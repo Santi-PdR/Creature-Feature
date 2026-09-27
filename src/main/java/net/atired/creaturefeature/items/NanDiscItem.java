@@ -1,6 +1,6 @@
 package net.atired.creaturefeature.items;
 
-import net.atired.creaturefeature.client.CreatureFeatureClient;
+import net.atired.creaturefeature.client.ClientItemEffects;
 import net.atired.creaturefeature.init.CFSoundInit;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionResult;
@@ -19,9 +19,9 @@ public class NanDiscItem extends RecordItem {
         if (context.getLevel().isClientSide()
                 && context.getLevel().getBlockState(context.getClickedPos()).getBlock() == Blocks.JUKEBOX
                 && result.consumesAction()) {
-            CreatureFeatureClient.PROXY.nan_title=1.0f;
             if (context.getPlayer() != null) {
-                context.getPlayer().displayClientMessage(Component.empty(), true);
+                net.minecraftforge.fml.DistExecutor.unsafeRunWhenOn(net.minecraftforge.api.distmarker.Dist.CLIENT,
+                        () -> () -> ClientItemEffects.showNanTitle(context.getPlayer()));
             }
         }
         return result;

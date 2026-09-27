@@ -1,7 +1,7 @@
 package net.atired.creaturefeature.items;
 
 import net.atired.creaturefeature.accessors.NoBlockContainerLevelAccess;
-import net.atired.creaturefeature.client.CreatureFeatureClient;
+import net.atired.creaturefeature.client.ClientItemEffects;
 import net.atired.creaturefeature.init.CFDataComponentTypeInit;
 import net.atired.creaturefeature.init.CFParticleInit;
 import net.minecraft.ChatFormatting;
@@ -74,8 +74,8 @@ public class OpenMindItem extends Item {
             player.playSound(SoundEvents.SLIME_SQUISH,1.0f,0.9f);
             player.playSound(SoundEvents.SLIME_SQUISH,1.5f,0.7f);
             player.playSound(SoundEvents.PLAYER_BURP,0.6f,0.9f);
-            CreatureFeatureClient.PROXY.wobble=1.0f;
-            CreatureFeatureClient.PROXY.wobblyItem=itemstack;
+            net.minecraftforge.fml.DistExecutor.unsafeRunWhenOn(net.minecraftforge.api.distmarker.Dist.CLIENT,
+                    () -> () -> ClientItemEffects.wobbleOpenMind(itemstack));
             return InteractionResultHolder.sidedSuccess(itemstack, level.isClientSide());
         }else{
             player.openMenu(getMenuProvider(level,player.getOnPos(),player));

@@ -2,19 +2,12 @@ package net.atired.creaturefeature.mixin;
 
 import net.atired.creaturefeature.networking.CFNetwork;
 
-import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
-import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import net.atired.creaturefeature.accessors.PlayerBrainrotAccessor;
-import net.atired.creaturefeature.client.CreatureFeatureClient;
 import net.atired.creaturefeature.init.CFAchievements;
-import net.atired.creaturefeature.networking.payloads.C2SManPayload;
 import net.atired.creaturefeature.networking.payloads.GasLeakPayload;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.sounds.SoundEvent;
-import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.Mth;
 import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.MoverType;
@@ -23,7 +16,6 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
-import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
@@ -31,8 +23,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(Player.class)
 public abstract class PlayerMixin extends LivingEntity implements PlayerBrainrotAccessor{
     @Shadow public abstract boolean hurt(DamageSource source, float amount);
-
-    @Shadow public abstract void playSound(SoundEvent sound, float volume, float pitch);
 
     private float tempDelayDamage = 0.0f;
     private float brainRot=0.0f;
@@ -55,41 +45,8 @@ public abstract class PlayerMixin extends LivingEntity implements PlayerBrainrot
     public void setDelayedDamage(float damage) {
         this.tempDelayDamage=damage;
     }
-    @Unique
-    private int creaturefeature$counter =0;
-    @Unique
-    private int creaturefeature$aged =0;
-    @Unique
-    private double creaturefeature$oldX =0;
-    @Unique
-    private double creaturefeature$oldZ =0;
-
     @Inject(method = "Lnet/minecraft/world/entity/player/Player;tick()V",at=@At("HEAD"))
     private void iDontTrustYerEventsPally(CallbackInfo ci){
-        this.creaturefeature$aged +=1;
-        if(getY()>127.8&&level()!=null&&(getYRot()<-89&&getYRot()>-91)&&level().isClientSide()&&CreatureFeatureClient.PROXY.searchingForHim&&level().dimensionType().respawnAnchorWorks()&&this.creaturefeature$aged%50==(48-creaturefeature$counter *2)){
-            if(Math.abs(this.creaturefeature$oldX -this.getX())>0.02&&Math.abs(this.creaturefeature$oldZ -this.getZ())<0.02){
-                creaturefeature$counter +=1;
-                this.creaturefeature$aged =0;
-                playSound(SoundEvents.BELL_RESONATE, creaturefeature$counter /5f, creaturefeature$counter /10f);
-                playSound(SoundEvents.ARROW_HIT_PLAYER, creaturefeature$counter /5f, creaturefeature$counter /10f);
-                CreatureFeatureClient.PROXY.manShader= creaturefeature$counter /24f;
-                if(creaturefeature$counter >23){
-                    playSound(SoundEvents.WARDEN_SONIC_BOOM, creaturefeature$counter /5f, creaturefeature$counter /10f);
-                    creaturefeature$counter =0;
-                    CreatureFeatureClient.PROXY.searchingForHim=false;
-                    CreatureFeatureClient.PROXY.manShader=0;
-                    C2SManPayload payload = new C2SManPayload(getId());
-                    CFNetwork.sendToServer(payload);
-                    //CFAchievements.NOBODY.trigger();
-                }
-            }
-        }
-        else if(getY()<127.8||!(getYRot()<-89&&getYRot()>-91)||level()==null||!level().dimensionType().respawnAnchorWorks()){
-            creaturefeature$counter =0;
-        }
-        creaturefeature$oldX =getX();
-        creaturefeature$oldZ =getZ();
         if(getDelayedDamage()>0){
             int dam=Math.min((int)Math.floor((getDelayedDamage()+0.5f)/2)+1,5);
             float prevDelayed = getDelayedDamage();

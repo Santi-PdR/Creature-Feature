@@ -25,6 +25,7 @@
     "GuiGraphicsMixin",
     "HumanoidArmorLayerMixin",
     "IamActivelyHavingaMigraineMixin",
-    "LivingEntityRendererMixin"
+    "LivingEntityRendererMixin",
+    "PlayerClientMixin"
   ]
 }

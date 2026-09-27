@@ -2,7 +2,6 @@ package net.atired.creaturefeature.statuseffects;
 
 import net.atired.creaturefeature.init.CFAchievements;
 import net.atired.creaturefeature.init.CFParticleInit;
-import net.minecraft.client.player.AbstractClientPlayer;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;

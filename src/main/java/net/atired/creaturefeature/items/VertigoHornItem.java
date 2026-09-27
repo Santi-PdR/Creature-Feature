@@ -1,16 +1,10 @@
 package net.atired.creaturefeature.items;
 
-import net.atired.creaturefeature.networking.CFNetwork;
-
 import net.atired.creaturefeature.accessors.PlayerBrainrotAccessor;
+import net.atired.creaturefeature.client.ClientItemEffects;
 import net.atired.creaturefeature.init.CFParticleInit;
-import net.atired.creaturefeature.networking.payloads.C2SVelSyncPayload;
 import net.minecraft.ChatFormatting;
 import net.minecraft.Util;
-import net.minecraft.client.player.AbstractClientPlayer;
-import net.minecraft.client.player.Input;
-import net.minecraft.client.player.KeyboardInput;
-import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
@@ -85,11 +79,9 @@ public class VertigoHornItem extends Item {
             play(level, player, instrument);
             player.getCooldowns().addCooldown(this, instrument.useDuration());
             player.addDeltaMovement(new Vec3(0,0.4,0));
-            if(player instanceof LocalPlayer abstractClientPlayer){
-                Vec3 dir = new Vec3(abstractClientPlayer.input.leftImpulse,0,abstractClientPlayer.input.forwardImpulse).normalize().scale(1.66).yRot(-abstractClientPlayer.getYHeadRot()/180.0f*3.14f);
-                abstractClientPlayer.addDeltaMovement(dir);
-                C2SVelSyncPayload payload = new C2SVelSyncPayload(abstractClientPlayer.getId(),dir.x,dir.y,dir.z);
-                CFNetwork.sendToServer(payload);
+            if (level.isClientSide()) {
+                net.minecraftforge.fml.DistExecutor.unsafeRunWhenOn(net.minecraftforge.api.distmarker.Dist.CLIENT,
+                        () -> () -> ClientItemEffects.applyVertigoHornImpulse(player));
             }
             if(level instanceof ServerLevel serverLevel){
                 serverLevel.sendParticles(CFParticleInit.TOOT_PARTICLE.get(),player.getX(),player.getY(0.5),player.getZ(),1,0,0,0,0);

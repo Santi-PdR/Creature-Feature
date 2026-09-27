@@ -3,7 +3,6 @@ package net.atired.creaturefeature.items;
 import net.atired.creaturefeature.entity.BlitzEntity;
 import net.atired.creaturefeature.init.CFDataComponentTypeInit;
 import net.minecraft.ChatFormatting;
-import net.minecraft.client.player.AbstractClientPlayer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.BlockParticleOption;
 import net.minecraft.core.particles.ParticleTypes;

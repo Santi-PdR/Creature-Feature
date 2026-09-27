@@ -3,7 +3,6 @@ package net.atired.creaturefeature.entity;
 import com.mojang.math.Axis;
 import net.atired.creaturefeature.init.CFEntityInit;
 import net.atired.creaturefeature.init.CFItemInit;
-import net.minecraft.client.renderer.entity.ThrownItemRenderer;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.EntityType;

@@ -5,7 +5,6 @@ import net.atired.creaturefeature.init.*;
 import net.atired.creaturefeature.misc.IcoSphere;
 import net.atired.creaturefeature.networking.CFNetwork;
 import net.atired.creaturefeature.networking.payloads.VelSyncPayload;
-import net.minecraft.client.player.AbstractClientPlayer;
 import net.minecraft.resources.ResourceLocation;
 
 
