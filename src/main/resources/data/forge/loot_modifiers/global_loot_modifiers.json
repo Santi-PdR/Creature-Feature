@@ -1,9 +1,9 @@
 {
   "replace": false,
   "entries": [
-    "oreganized:machination",
-    "oreganized:mind",
-    "oreganized:sinister",
-    "caverns_and_chasms:sinister"
+    "creaturefeature:oreganized_machination",
+    "creaturefeature:oreganized_minds",
+    "creaturefeature:oreganized_sinister",
+    "creaturefeature:caverns_and_chasms_sinister"
   ]
 }

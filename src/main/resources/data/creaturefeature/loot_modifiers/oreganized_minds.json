@@ -1,0 +1,15 @@
+{
+  "type": "creaturefeature:optional_item",
+  "conditions": [
+    {
+      "condition": "forge:loot_table_id",
+      "loot_table_id": "creaturefeature:entities/minds"
+    }
+  ],
+  "item": "oreganized:lead_nugget",
+  "chance": 0.75,
+  "base_min": 0.0,
+  "base_max": 2.0,
+  "looting_min": 0.0,
+  "looting_max": 1.0
+}
