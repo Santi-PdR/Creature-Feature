@@ -1,7 +1,7 @@
 {
   "sources": [
     {
-      "type": "blueprint:paletted_permutations",
+      "type": "minecraft:paletted_permutations",
       "palette_key": "minecraft:trims/color_palettes/trim_palette",
       "permutations": {
         "scroll_trans": "creaturefeature:trims/color_palettes/scroll_tr",
