@@ -2,6 +2,7 @@ package net.atired.creaturefeature.items;
 
 import net.atired.creaturefeature.client.CreatureFeatureClient;
 import net.atired.creaturefeature.init.CFSoundInit;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.item.RecordItem;
 import net.minecraft.world.item.context.UseOnContext;
@@ -14,10 +15,15 @@ public class NanDiscItem extends RecordItem {
 
     @Override
     public InteractionResult useOn(UseOnContext context) {
-        if(context.getLevel().isClientSide()&&context.getLevel().getBlockState(context.getClickedPos()).getBlock()== Blocks.JUKEBOX){
+        InteractionResult result = super.useOn(context);
+        if (context.getLevel().isClientSide()
+                && context.getLevel().getBlockState(context.getClickedPos()).getBlock() == Blocks.JUKEBOX
+                && result.consumesAction()) {
             CreatureFeatureClient.PROXY.nan_title=1.0f;
-            return InteractionResult.SUCCESS;
+            if (context.getPlayer() != null) {
+                context.getPlayer().displayClientMessage(Component.empty(), true);
+            }
         }
-        return super.useOn(context);
+        return result;
     }
 }
